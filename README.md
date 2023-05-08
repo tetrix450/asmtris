@@ -1,4 +1,4 @@
-# asmtrix16
+# asmtris
 Basic and crude x86 assembly implementation of tetris for DOS.
 
 # Known problems
