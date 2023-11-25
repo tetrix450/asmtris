@@ -1,6 +1,10 @@
 # asmtris
 Basic and crude x86 assembly implementation of tetris for DOS.
 
+![Alt text](/tetris.png?raw=true)
+
+![Alt text](/pausa.png?raw=true)
+
 # Known problems
 Comments in code and procedure names are in spanish, and they were meant to be seen only by me at first, so I will look forward to make this code more universal and more understandable in the near future. Currently the game only counts the number of completed lines, so there is no scoring system besides that and the color of the moving pieces is hardcoded to red. Placed pieces are blue.
 
