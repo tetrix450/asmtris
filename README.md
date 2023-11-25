@@ -6,7 +6,7 @@ Basic and crude x86 assembly implementation of tetris for DOS.
 ![Alt text](/pausa.png?raw=true "Paused game")
 
 # How to build and run
-You'll need DOS or any emulator, and build it using Turbo Assembler:
+You'll need DOS or any DOS emulator (like DOSBox) and need Turbo Assembler to build it:
 ```
 tasm source.asm
 tlink source.obj
