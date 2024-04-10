@@ -20,7 +20,7 @@ source.exe
 Puedes usar las flechas izquierda y derecha para mover las piezas y las teclas 'Z' y 'X' para girarlas.
 Para bajar las piezas un poco más rapido (soft drop), mantener pulsado hacia abajo. Para bajarlas de golpe
 (hard drop), pulsar la tecla hacia arriba.
-Para pausar o quitar la pusa del juego, pulsa enter.
+Para pausar o quitar la pausa del juego, pulsa enter.
 
 # Problemas conocidos
 Actualmente el juego sólo cuenta las líneas que has hecho y no hay un sistema de puntos. Las piezas serán siempre
