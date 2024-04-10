@@ -1,25 +1,28 @@
 # asmtris
-Basic and crude x86 assembly implementation of tetris for DOS.
+Implementación básica y bastante cruda de tetris para DOS hecho completamente en ensamblador para el 8086.
 
-![Alt text](/tetris.png?raw=true "Game running on DOSBox")
+![Alt text](/tetris.png?raw=true "Juego corriendo en DOSBox")
 
-![Alt text](/pausa.png?raw=true "Paused game")
+![Alt text](/pausa.png?raw=true "Juego pausado")
 
-# How to build and run
-You'll need DOS or any DOS emulator (like DOSBox) and need Turbo Assembler to build it:
+# Cómo compilar y correr el juego
+Necesitarás DOS ó un emulador de DOS (como DOSBox) y usar turbo assembler para ensamblarlo y linkarlo:
 ```
 tasm source.asm
 tlink source.obj
 ```
-Finally, to run it you can simply do:
+Finalmente para ejecutar el juego:
 ```
 source.exe
 ```
 
-# Controls
-You can use the left and right arrow keys to move the pieces and "Z" and "X" to rotate them clockwise or counter-clockwise.
-The down arrow key is for the soft drop, and you can also hard drop using the up arrow key.
-To pause or unpause the game, press enter.
+# Controles
+Puedes usar las flechas izquierda y derecha para mover las piezas y las teclas 'Z' y 'X' para girarlas.
+Para bajar las piezas un poco más rapido (soft drop), mantener pulsado hacia abajo. Para bajarlas de golpe
+(hard drop), pulsar la tecla hacia arriba.
+Para pausar o quitar la pusa del juego, pulsa enter.
 
-# Known problems
-Comments in code and procedure names are in spanish, so I will look forward to make this code more universal and more understandable in the future. Currently the game only counts the number of completed lines, so there is no scoring system besides that and the color of the moving pieces is hardcoded to red. Placed pieces are blue.
+# Problemas conocidos
+Actualmente el juego sólo cuenta las líneas que has hecho y no hay un sistema de puntos. Las piezas serán siempre
+de color rojo hasta que se coloquen en el tablero, que serán azules. Esto tenía pensado cambiarlo para que cada pieza
+fuera de un color distinto, pero ahí esta a medio hacer.
