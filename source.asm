@@ -47,6 +47,7 @@ org 0100h
 		cooldown_bajada db 1
 		max_cooldown_bajada db 14
 		lineas dw 0
+		highscore dw 0
 		semilla dw 16;para generar numeros pseudoaleatorios
 	;tabla de tetriminos
 	tetrimino  db   0,  0,  1,  0;pieza
@@ -1191,6 +1192,13 @@ game_over proc;ok!!
 	push dx
 	push si
 
+	mov ax,lineas
+	cmp ax,highscore
+	jbe no_hay_record
+		mov highscore,ax
+		call mostrar_record
+	no_hay_record:
+
 	cmp byte ptr flag_game_over,0
 	jnz game_over3
 	;dibujar recuadro negro:
@@ -1614,8 +1622,26 @@ pseudoaleatorio endp
 
 tetrix proc;ok
 
-mov cx,138
+mov cx,122
 mov dx,4
+mov si,'G'
+call dibujar_letra
+add cx,5
+mov si,'I'
+call dibujar_letra
+add cx,4
+mov si,'T'
+call dibujar_letra
+add cx,4
+mov si,'H'
+call dibujar_letra
+add cx,5
+mov si,'U'
+call dibujar_letra
+add cx,5
+mov si,'B'
+call dibujar_letra
+add cx,10
 mov si,'T'
 call dibujar_letra
 add cx,4
@@ -1642,6 +1668,7 @@ call dibujar_letra
 add cx,5
 mov si,'0'
 call dibujar_letra
+
 
 ret
 tetrix endp
@@ -1791,6 +1818,61 @@ pop ax
 ret
 borrar_linea endp
 
+mostrar_record proc
+
+push si
+push ax
+push cx
+push dx
+
+	mov cx,210
+	mov dx,30
+	mov si,'R'
+	call dibujar_letra
+	add cx,5
+	mov si,'E'
+	call dibujar_letra
+	add cx,5
+	mov si,'C'
+	call dibujar_letra
+	add cx,5
+	mov si,'O'
+	call dibujar_letra
+	add cx,5
+	mov si,'R'
+	call dibujar_letra
+	add cx,5
+	mov si,'D'
+	call dibujar_letra
+
+	mov ax,highscore
+	mov si,5
+	mostrar_record_bcd1:
+		xor dx,dx
+		mov cx,10
+		div cx;ax=dxax/10;dx=modulo
+		push dx
+	dec si
+	jnz mostrar_record_bcd1
+	
+	mov dx,30
+	mov cx,240
+	mov ax,5
+	mostrar_record_bcd2:
+		pop si
+		add si,48
+		add cx,5
+		call dibujar_letra
+	dec ax
+	jnz mostrar_record_bcd2
+
+pop dx
+pop cx
+pop ax
+pop si
+
+mostrar_record endp
+
 mostrar_lineas proc
 push si
 push ax
@@ -1828,7 +1910,7 @@ push dx
 	jnz mostrar_lineas_bcd1
 	
 	mov dx,20
-	mov cx,235
+	mov cx,240
 	mov ax,5
 	mostrar_lineas_bcd2:
 		pop si
@@ -2031,6 +2113,7 @@ inicio_normal:
 ;eventos antes del bucle
 call pausar
 call mostrar_lineas
+call mostrar_record
 call mostrar_controles
 call tetrix
 
