@@ -1764,22 +1764,28 @@ comprobar_linea proc
 	
 	call mostrar_lineas
 	
-	cmp lineas,80
-	jb lineas_60
-		mov max_cooldown_bajada,3
-		jmp lineas_0
-	lineas_60:
-	cmp lineas,60
-	jb lineas_40
-		mov max_cooldown_bajada,6
-		jmp lineas_0
-	lineas_40:
-	cmp lineas,40
+	;actualizar la velocidad tras hacer x líneas
+	cmp lineas,30
 	jb lineas_20
-		mov max_cooldown_bajada,9
+		mov max_cooldown_bajada,2
 		jmp lineas_0
 	lineas_20:
 	cmp lineas,20
+	jb lineas_15
+		mov max_cooldown_bajada,3
+		jmp lineas_0
+	lineas_15:
+	cmp lineas,15
+	jb lineas_10
+		mov max_cooldown_bajada,6
+		jmp lineas_0
+	lineas_10:
+	cmp lineas,10
+	jb lineas_5
+		mov max_cooldown_bajada,9
+		jmp lineas_0
+	lineas_5:
+	cmp lineas,5
 	jb lineas_0
 		mov max_cooldown_bajada,12
 	lineas_0:
